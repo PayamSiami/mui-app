@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ScatterPlotOutlinedIcon from "@mui/icons-material/ScatterPlotOutlined";
 import TerminalOutlinedIcon from "@mui/icons-material/TerminalOutlined";
@@ -12,7 +11,8 @@ import Diversity2OutlinedIcon from "@mui/icons-material/Diversity2Outlined";
 import CardGiftcardOutlinedIcon from "@mui/icons-material/CardGiftcardOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import Profile from "../../pages/Profile";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -29,13 +29,10 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
+      style={{ flex: 1 }}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && children}
     </div>
   );
 }
@@ -237,7 +234,7 @@ export default function VerticalTab() {
         />
       </Tabs>
       <TabPanel value={value} index={0}>
-        اطلاعات پروفایل
+        <Profile />
       </TabPanel>
       <TabPanel value={value} index={1}>
         ویژگی‌ها و علاقه‌ها
