@@ -16,7 +16,8 @@ import Link from "@mui/material/Link";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import VerticalTab from "../components/VerticalTab";
+import VerticalTab from "../components/tab/VerticalTab";
+import ImageAvatar from "../components/avatar/Avatar";
 
 function Copyright(props: any) {
   return (
@@ -131,21 +132,6 @@ function DashboardContent() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <Toolbar
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            px: [1],
-          }}
-        >
-          <IconButton onClick={toggleDrawer}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </Toolbar>
-        <Divider />
-      </Drawer>
       <Box
         component="main"
         sx={{
@@ -161,16 +147,27 @@ function DashboardContent() {
         <Toolbar />
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid container spacing={3}>
-            {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper
                 sx={{
                   p: 2,
-                  direction: "rtl",
                   display: "flex",
                   flexDirection: "column",
                 }}
               >
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <Box sx={{ p: 3 }}>
+                    <ImageAvatar />
+                  </Box>
+                  <Box sx={{ display: "flow-root" }}>
+                    <Typography variant="h5" gutterBottom>
+                      سعید صفایی
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      بدون اشتراک
+                    </Typography>
+                  </Box>
+                </Box>
                 <VerticalTab />
               </Paper>
             </Grid>
