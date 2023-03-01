@@ -14,7 +14,7 @@ const theme = createTheme({
       main: "#19857b",
       contrastText: "#fff",
       light: "#19857b",
-      dark: "#00695c",
+      dark: "#EAEAEA",
     },
     error: {
       main: red.A400,
@@ -27,6 +27,9 @@ const theme = createTheme({
     borderRadius: 8,
   },
   direction: "rtl",
+  typography: {
+    fontFamily: ["dana-fanum"].join(","),
+  },
 });
 
 export default theme;
