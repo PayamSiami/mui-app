@@ -1,44 +1,34 @@
 import * as React from "react";
 import { Autocomplete as MuiAutocomplete, TextField } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
-import stylisRTLPlugin from "stylis-plugin-rtl";
-
-const cacheRtl = createCache({
-  key: "muirtl",
-  stylisPlugins: [stylisRTLPlugin],
-});
 
 export default function Autocomplete() {
   const theme = useTheme();
 
   return (
-    <CacheProvider value={cacheRtl}>
-      <MuiAutocomplete
-        sx={{
-          ".muirtl-1mjhpr1-MuiInputBase-root-MuiOutlinedInput-root": {
-            height: theme.spacing(5),
-          },
-          ".muirtl-nxo287-MuiInputBase-input-MuiOutlinedInput-input": {
-            marginTop: `${theme.spacing(-1)} !important`,
-          },
-        }}
-        id="country-select-demo"
-        options={countries}
-        autoHighlight
-        getOptionLabel={(option) => option.name}
-        renderInput={(params: any) => (
-          <TextField
-            {...params}
-            placeholder="استان"
-            inputProps={{
-              ...params.inputProps,
-            }}
-          />
-        )}
-      />
-    </CacheProvider>
+    <MuiAutocomplete
+      sx={{
+        ".muirtl-1mjhpr1-MuiInputBase-root-MuiOutlinedInput-root": {
+          height: theme.spacing(5),
+        },
+        ".muirtl-nxo287-MuiInputBase-input-MuiOutlinedInput-input": {
+          marginTop: `${theme.spacing(-1)} !important`,
+        },
+      }}
+      id="country-select-demo"
+      options={countries}
+      autoHighlight
+      getOptionLabel={(option) => option.name}
+      renderInput={(params: any) => (
+        <TextField
+          {...params}
+          placeholder="استان"
+          inputProps={{
+            ...params.inputProps,
+          }}
+        />
+      )}
+    />
   );
 }
 

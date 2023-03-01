@@ -8,9 +8,11 @@ type Props = {
 
 export default function Button(props: Props) {
   const { title, variant } = props;
+
   return (
     <MuiButton
       sx={{
+        width: 144,
         "& button": { m: 1 },
         "&:hover": {
           backgroundColor: variant !== "contained" ? "none" : "primary.main",

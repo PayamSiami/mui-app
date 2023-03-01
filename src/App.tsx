@@ -1,7 +1,7 @@
-import { Container, CssBaseline, Grid, Typography } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
-import Dashboard from "./pages/Dashboard";
+import { Dashboard } from "./pages";
 
 function App() {
   return (
