@@ -5,7 +5,7 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#556cd6",
+      main: "#B0BF24",
       contrastText: "#fff",
       light: "#B0BF24",
       dark: "#3F4254",
@@ -26,6 +26,7 @@ const theme = createTheme({
   shape: {
     borderRadius: 8,
   },
+  direction: "rtl",
 });
 
 export default theme;
