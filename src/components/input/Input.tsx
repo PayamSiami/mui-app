@@ -1,19 +1,25 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
+import { TextField } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
-const CustomInput = styled("input")(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius,
-  minHeight: theme.spacing(5),
-  padding: theme.spacing(1, 1),
-  borderColor: theme.palette.primary.dark,
-  color: theme.palette.primary.dark,
-  borderWidth: 1,
-  "&:focus": {
-    borderColor: theme.palette.primary.dark,
-  },
-  width: "100%",
-}));
+type Props = {
+  placeholder: string;
+};
 
-export default function Input() {
-  return <CustomInput placeholder="نام خود را وارد کنید." />;
+export default function Input(props: Props) {
+  const { placeholder } = props;
+  const theme = useTheme();
+
+  return (
+    <TextField
+      sx={{
+        ".css-nrk0c3-MuiInputBase-root-MuiOutlinedInput-root": {
+          height: theme.spacing(5),
+        },
+      }}
+      fullWidth
+      id="outlined-basic"
+      placeholder={placeholder}
+      variant="outlined"
+    />
+  );
 }
