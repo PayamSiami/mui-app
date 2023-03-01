@@ -1,16 +1,18 @@
 import React from "react";
-import VerticalTab from "../components/tab/VerticalTab";
-import { Box, Typography } from "@mui/material";
-import ImageAvatar from "../components/avatar/Avatar";
-import MobileTab from "../components/tab/MobileTab";
-import { isMobile } from "react-device-detect";
+import { Box, Typography, useMediaQuery } from "@mui/material";
+
+import { Avatar, MobileTab, VerticalTab } from "../components";
 
 export default function Tab() {
+  const isSmallScreen = useMediaQuery((theme: any) =>
+    theme.breakpoints.down("sm")
+  );
+
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Box sx={{ p: 3 }}>
-          <ImageAvatar sx={{ width: 62, height: 62 }} />
+          <Avatar sx={{ width: 62, height: 62 }} />
         </Box>
         <Box sx={{ display: "flow-root" }}>
           <Typography variant="h5" gutterBottom>
@@ -22,7 +24,7 @@ export default function Tab() {
         </Box>
       </Box>
       <Box sx={{ flex: 1, width: "100%" }}>
-        {isMobile ? <MobileTab /> : <VerticalTab />}
+        {isSmallScreen ? <MobileTab /> : <VerticalTab />}
       </Box>
     </>
   );
