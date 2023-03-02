@@ -28,6 +28,7 @@ export default function DatePicker() {
           }}
           renderInput={(params) => (
             <TextField
+              fullWidth
               {...params}
               inputProps={{
                 ...params.inputProps,
